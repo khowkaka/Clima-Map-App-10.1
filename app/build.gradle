@@ -1,0 +1,7 @@
+plugins { id 'com.android.application' }
+
+android { namespace 'com.webview.climamapcom'; compileSdk 36
+    defaultConfig { applicationId 'com.webview.climamapcom'; minSdk 23; targetSdk 36; versionCode 1; versionName '2.8.6' }
+    signingConfigs { release { storeFile file('release-keystore.p12'); storePassword System.getenv('KEYSTORE_PASSWORD'); keyAlias System.getenv('KEY_ALIAS'); keyPassword System.getenv('KEY_PASSWORD'); storeType System.getenv('STORE_TYPE') ?: 'pkcs12' } }
+    buildTypes { release { signingConfig signingConfigs.release; minifyEnabled true; shrinkResources false; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' } }
+}
